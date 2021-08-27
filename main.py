@@ -28,5 +28,15 @@ if not os.path.isabs(args.path):
      path = os.path.join(os.getcwd(), args.path)
      new_file_name, extension = os.path.splitext(args.path)
 
-create_serializer(extension[1:]) 
-create_serializer(args.language)
+j_conv = create_serializer('json') 
+
+obj = {'a':1,'b':3, 'c':[1,2]}
+
+s = j_conv.dump(obj)
+print(s)
+obj2 = j_conv.load(s)
+print(obj2)
+if(obj2 == obj):
+     print("coool")
+else:
+     print("NOOOOOOO")

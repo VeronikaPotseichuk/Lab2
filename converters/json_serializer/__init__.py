@@ -5,6 +5,13 @@ from ..obj_converter import *
 import inspect
 
 class json_serializer:
+
+    def loads(self, string):
+    tokens = lex(string)
+
+    result = parse(tokens)[0]
+
+    return result
     
     def dumps(self, obj, is_dict = True):
         if type(obj) == dict:
@@ -69,6 +76,9 @@ class json_serializer:
             return JSON_SET_FLAG + self.dumps(list(obj), False)
 
         return self.dumps(obj_to_dict(obj), False)  
+
+    def load(self, string):
+        return self.loads(string)  
 
     def dump(self, obj):
         return self.dumps(obj)
