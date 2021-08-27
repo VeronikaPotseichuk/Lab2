@@ -28,27 +28,16 @@ if not os.path.isabs(args.path):
      path = os.path.join(os.getcwd(), args.path)
      new_file_name, extension = os.path.splitext(args.path)
 
-j_conv = create_serializer('json') 
+t_conv = create_serializer('toml') 
 
 obj = {'a':1,'b':3, 'c':[1,2]}
 
-s = j_conv.dump(obj)
+s = t_conv.dump(obj)
 print(s)
-obj2 = j_conv.load(s)
+obj2 = t_conv.load(s)
 print(obj2)
 if(obj2 == obj):
-      print("coool json")
+     print("coool toml")
 else:
-     print("NOOOOOOO json")
+     print("NOOOOOOO toml")
 
-
-p_conv = create_serializer('pickle')
-
-s = p_conv.dump(obj)
-print(s)
-obj2 = p_conv.load(s)
-print(obj2)
-if(obj2 == obj):
-     print("coool pickle")
-else:
-     print("NOOOOOOO pickle")
