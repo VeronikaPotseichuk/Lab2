@@ -37,6 +37,18 @@ print(s)
 obj2 = j_conv.load(s)
 print(obj2)
 if(obj2 == obj):
-     print("coool")
+      print("coool json")
 else:
-     print("NOOOOOOO")
+     print("NOOOOOOO json")
+
+
+p_conv = create_serializer('pickle')
+
+s = p_conv.dump(obj)
+print(s)
+obj2 = p_conv.load(s)
+print(obj2)
+if(obj2 == obj):
+     print("coool pickle")
+else:
+     print("NOOOOOOO pickle")
