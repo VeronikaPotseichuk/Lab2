@@ -28,7 +28,7 @@ if not os.path.isabs(args.path):
      path = os.path.join(os.getcwd(), args.path)
      new_file_name, extension = os.path.splitext(args.path)
 
-t_conv = create_serializer('toml') 
+t_conv = create_serializer('yaml') 
 
 obj = {'a':1,'b':3, 'c':[1,2]}
 
@@ -37,7 +37,7 @@ print(s)
 obj2 = t_conv.load(s)
 print(obj2)
 if(obj2 == obj):
-     print("coool toml")
+     print("coool yaml")
 else:
-     print("NOOOOOOO toml")
+     print("NOOOOOOO yaml")
 
