@@ -28,16 +28,25 @@ if not os.path.isabs(args.path):
      path = os.path.join(os.getcwd(), args.path)
      new_file_name, extension = os.path.splitext(args.path)
 
-t_conv = create_serializer('yaml') 
+extension = extension[1:]
 
-obj = {'a':1,'b':3, 'c':[1,2]}
+if extension not in ['json', 'yaml', 'toml', 'pickle']:
+     print('Invalid file extension.')
+     exit(1)
 
-s = t_conv.dump(obj)
-print(s)
-obj2 = t_conv.load(s)
-print(obj2)
-if(obj2 == obj):
-     print("coool yaml")
-else:
-     print("NOOOOOOO yaml")
+if extension == args.language:
+     print('the same format.')
+     exit(1)
 
+with open(path, 'r') as source_fp:
+     source_serializer = create_serializer(extension)
+     obj = source_serializer.load(source_fp)
+
+new_file_name += '.' + args.language 
+
+with open(new_file_name, 'w') as target_fp:
+    target_serializer = create_serializer(args.language)
+
+    target_serializer.dump(obj=obj, fp=target_fp)
+
+print('Done')

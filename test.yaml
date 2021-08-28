@@ -1,0 +1,9 @@
+D
+a: 1
+T b:
+  - 5
+  - 1
+  - "qwe"
+  - T - false
+    - true
+c: "string"
