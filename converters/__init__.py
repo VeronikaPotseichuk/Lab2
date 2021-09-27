@@ -1,20 +1,21 @@
+from .json_serializer import json_serializer
+from .pickle_serializer import pickle_serializer
+from .toml_serializer import toml_serializer
+from .yaml_serializer import yaml_serializer
 
 def create_serializer(name):
     if name == 'json':
-        print("JSON")
-        return
+        return json_serializer()
 
     if name == 'pickle':
-        print("PICKLE")
-        return
+        return pickle_serializer()
 
     if name == 'toml':
-        print("TOML")
-        return
+        return toml_serializer()
 
     if name == 'yaml':
-        print("YAML")
-        return
+        return yaml_serializer()
 
     print("HZ Language")
     exit(1)
+
