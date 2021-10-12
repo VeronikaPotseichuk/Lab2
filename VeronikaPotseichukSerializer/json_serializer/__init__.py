@@ -5,13 +5,10 @@ from ..obj_converter import *
 import inspect
 
 class json_serializer:
-
     def loads(self, string):
-    tokens = lex(string)
-
-    result = parse(tokens)[0]
-
-    return result
+        tokens = lex(string)
+        result = parse(tokens)[0]
+        return result
     
     def dumps(self, obj, is_dict = True):
         if type(obj) == dict:
