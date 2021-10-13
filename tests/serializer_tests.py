@@ -1,4 +1,4 @@
-from converters import *
+from VeronikaPotseichukSerializer import *
 from .sample_objects import *
 import unittest
 

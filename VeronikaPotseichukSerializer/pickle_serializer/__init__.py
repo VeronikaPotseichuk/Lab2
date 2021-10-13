@@ -1,6 +1,7 @@
+from ..serializer_basic import *
 from ..json_serializer import json_serializer
 
-class pickle_serializer:
+class pickle_serializer(serializer_basic):
     
     def __init__(self):
         self.s = json_serializer()

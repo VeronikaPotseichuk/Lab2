@@ -1,10 +1,11 @@
+from ..serializer_basic import *
 from .json_lexer import lex
 from .json_parser import parse
 from .json_constants import *
 from ..obj_converter import *
 import inspect
 
-class json_serializer:
+class json_serializer(serializer_basic):
     def loads(self, string):
         tokens = lex(string)
         result = parse(tokens)[0]

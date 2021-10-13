@@ -1,10 +1,11 @@
+from ..serializer_basic import *
 from .yaml_constants import *
 from .yaml_lexer import lex
 from .yaml_parser import parse
 from ..obj_converter import *
 import inspect
 
-class yaml_serializer:
+class yaml_serializer(serializer_basic):
 
     def loads(self, string):
         tokens = lex(string)

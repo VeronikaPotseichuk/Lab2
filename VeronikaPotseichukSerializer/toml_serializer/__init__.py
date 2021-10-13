@@ -1,10 +1,11 @@
+from ..serializer_basic import *
 from .toml_lexer import lex
 from .toml_parser import parse
 from .toml_constants import *
 from ..obj_converter import *
 import inspect
 
-class toml_serializer:
+class toml_serializer(serializer_basic):
     
     def loads(self, string):
         tokens = lex(string)
